@@ -9,7 +9,7 @@ public class Destroy : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Check");
+            Score._instance.ScoreAdd();
             Destroy(_core);
         }
     }

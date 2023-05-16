@@ -7,35 +7,41 @@ public class Move : MonoBehaviour
     [SerializeField] Rigidbody _rigidBody;
     [SerializeField] float _front = 1.0f;
     [SerializeField] float _movenum = 0.1f;
-    bool isStop = false;
-    Transform _posbase;
-    Vector3 _pos;
+    private bool isStop = false;
+    private Transform _tra;
+    private Vector3 _pos;
 
     void Awake()
     {
         _rigidBody = GetComponent<Rigidbody>();
-        _posbase = _rigidBody.transform;
-        _pos = _posbase.position;
+        _tra = this.gameObject.transform;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            _rigidBody.MovePosition(new Vector3(_movenum, 0.0f, 0.0f));
-
-        }
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            _rigidBody.MovePosition(new Vector3(_movenum, 0.0f, 0.0f));
-        }
-
-        _posbase.position = _pos;
+        _pos = _tra.position;
 
         if (!isStop)
         {
-            _rigidBody.AddForce(0.0f, 0.0f, _front, ForceMode.Impulse);
+            if (_pos.x <= 9.5f)
+            {
+                if (Input.GetKey(KeyCode.RightArrow))
+                {
+                    _rigidBody.AddForce(_movenum, 0.0f, 0.0f, ForceMode.Impulse);
+
+                }
+            }
+            if (_pos.x >= -9.5f)
+            {
+                if (Input.GetKey(KeyCode.LeftArrow))
+                {
+                    _rigidBody.AddForce(-_movenum, 0.0f, 0.0f, ForceMode.Impulse);
+                }
+            }
+            
+            _rigidBody.velocity = new Vector3(0.0f, 0.0f, _front);
         }
         if (isStop)
         {
