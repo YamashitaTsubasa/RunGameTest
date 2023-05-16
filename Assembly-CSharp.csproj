@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{09FBF902-3761-3168-6169-A7662997F4C8}</ProjectGuid>
+    <ProjectGuid>{F312EDC7-E9AE-1E6A-F4F0-0D711857F801}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -56,6 +56,8 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\Destroy.cs" />
+    <Compile Include="Assets\Script\Genelate.cs" />
     <Compile Include="Assets\Script\Move.cs" />
   </ItemGroup>
   <ItemGroup>
